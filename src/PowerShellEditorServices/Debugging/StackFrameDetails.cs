@@ -3,7 +3,9 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 //
 
+#if !PowerShellEditorServicesClient
 using System.Management.Automation;
+#endif
 
 namespace Microsoft.PowerShell.EditorServices
 {
@@ -43,6 +45,8 @@ namespace Microsoft.PowerShell.EditorServices
         /// </summary>
         public VariableContainerDetails LocalVariables { get; private set; }
 
+        #if !PowerShellEditorServicesClient
+
         /// <summary>
         /// Creates an instance of the StackFrameDetails class from a
         /// CallStackFrame instance provided by the PowerShell engine.
@@ -72,5 +76,7 @@ namespace Microsoft.PowerShell.EditorServices
                 LocalVariables = localVariables
             };
         }
+
+        #endif
     }
 }

@@ -46,6 +46,8 @@ namespace Microsoft.PowerShell.EditorServices.Protocol.DebugAdapter
             };
         }
 
+        #if !PowerShellEditorServicesClient
+
         public static Breakpoint Create(
             CommandBreakpointDetails breakpointDetails)
         {
@@ -56,6 +58,8 @@ namespace Microsoft.PowerShell.EditorServices.Protocol.DebugAdapter
                 Message = breakpointDetails.Message
             };
         }
+
+        #endif
 
         public static Breakpoint Create(
             SourceBreakpoint sourceBreakpoint,

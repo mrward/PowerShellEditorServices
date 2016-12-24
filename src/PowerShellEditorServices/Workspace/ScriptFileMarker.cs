@@ -5,10 +5,12 @@
 
 using Microsoft.PowerShell.EditorServices.Utility;
 using System;
-using System.Management.Automation;
 using System.Collections.Generic;
 using System.Linq;
+#if !PowerShellEditorServicesClient
+using System.Management.Automation;
 using System.Management.Automation.Language;
+#endif
 
 namespace Microsoft.PowerShell.EditorServices
 {
@@ -81,6 +83,8 @@ namespace Microsoft.PowerShell.EditorServices
         #endregion
 
         #region Public Methods
+
+        #if !PowerShellEditorServicesClient
 
         internal static ScriptFileMarker FromParseError(
             ParseError parseError)
@@ -179,6 +183,9 @@ namespace Microsoft.PowerShell.EditorServices
                         "diagnosticSeverity");
             }
         }
+
+        #endif
+
         #endregion
     }
 }
