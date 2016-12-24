@@ -15,6 +15,8 @@ buildd.*
 release/
 *.log
 *.bak
+*.userprefs
+*.DS_Store
 packages
 OACRTemp/
 build_logs/
