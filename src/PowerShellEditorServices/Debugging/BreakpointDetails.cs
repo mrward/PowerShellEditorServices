@@ -4,7 +4,9 @@
 //
 
 using System;
+#if !PowerShellEditorServicesClient
 using System.Management.Automation;
+#endif
 using Microsoft.PowerShell.EditorServices.Utility;
 
 namespace Microsoft.PowerShell.EditorServices
@@ -64,6 +66,8 @@ namespace Microsoft.PowerShell.EditorServices
             };
         }
 
+        #if !PowerShellEditorServicesClient
+
         /// <summary>
         /// Creates an instance of the BreakpointDetails class from a
         /// PowerShell Breakpoint object.
@@ -96,5 +100,7 @@ namespace Microsoft.PowerShell.EditorServices
 
             return breakpointDetails;
         }
+
+        #endif
     }
 }

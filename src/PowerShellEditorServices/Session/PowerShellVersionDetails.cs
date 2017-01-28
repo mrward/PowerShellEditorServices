@@ -6,7 +6,9 @@
 using Microsoft.PowerShell.EditorServices.Utility;
 using System;
 using System.Collections;
+#if !PowerShellEditorServicesClient
 using System.Management.Automation.Runspaces;
+#endif
 
 namespace Microsoft.PowerShell.EditorServices.Session
 {
@@ -86,6 +88,7 @@ namespace Microsoft.PowerShell.EditorServices.Session
 
         #region Public Methods
 
+        #if !PowerShellEditorServicesClient
         /// <summary>
         /// Gets the PowerShell version details for the given runspace.
         /// </summary>
@@ -160,6 +163,7 @@ namespace Microsoft.PowerShell.EditorServices.Session
                 powerShellEdition,
                 architecture);
         }
+        #endif
 
         #endregion
     }

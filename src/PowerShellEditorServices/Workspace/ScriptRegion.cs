@@ -3,7 +3,9 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 //
 
+#if !PowerShellEditorServicesClient
 using System.Management.Automation.Language;
+#endif
 
 namespace Microsoft.PowerShell.EditorServices
 {
@@ -58,6 +60,8 @@ namespace Microsoft.PowerShell.EditorServices
 
         #region Constructors
 
+        #if !PowerShellEditorServicesClient
+
         /// <summary>
         /// Creates a new instance of the ScriptRegion class from an
         /// instance of an IScriptExtent implementation.
@@ -82,6 +86,8 @@ namespace Microsoft.PowerShell.EditorServices
                 EndOffset = scriptExtent.EndOffset
             };
         }
+
+        #endif
 
         #endregion
     }
